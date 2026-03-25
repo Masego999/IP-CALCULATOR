@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IP Subnet Calculator</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="wrap">
+    <h2>IP subnet calculator</h2>
+
+    <div class="card">
+      <div class="card-title">Enter IP details</div>
+      <div class="row2">
+        <div class="field">
+          <label for="ip">IP address</label>
+          <input type="text" id="ip" placeholder="192.168.1.0"/>
+        </div>
+        <div class="field">
+          <label for="cidr">Subnet mask / CIDR</label>
+          <select id="cidr">
+            <option value="8">/8  — 255.0.0.0</option>
+            <option value="16">/16 — 255.255.0.0</option>
+            <option value="24" selected>/24 — 255.255.255.0</option>
+            <option value="25">/25 — 255.255.255.128</option>
+            <option value="26">/26 — 255.255.255.192</option>
+            <option value="27">/27 — 255.255.255.224</option>
+            <option value="28">/28 — 255.255.255.240</option>
+            <option value="30">/30 — 255.255.255.252</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn" onclick="calculate()">Calculate</button>
+      <div class="error" id="err">Please enter a valid IP address (e.g. 192.168.1.0)</div>
+    </div>
+
+    <div class="card results" id="results">
+      <div class="card-title">Results</div>
+      <div class="result-row"><span class="res-lbl">Network address</span><span class="res-val" id="r-net"></span></div>
+      <div class="result-row"><span class="res-lbl">Subnet mask</span><span class="res-val" id="r-mask"></span></div>
+      <div class="result-row"><span class="res-lbl">Wildcard mask</span><span class="res-val" id="r-wild"></span></div>
+      <div class="result-row"><span class="res-lbl">First usable host</span><span class="res-val" id="r-first"></span></div>
+      <div class="result-row"><span class="res-lbl">Last usable host</span><span class="res-val" id="r-last"></span></div>
+      <div class="result-row"><span class="res-lbl">Broadcast address</span><span class="res-val" id="r-bcast"></span></div>
+      <div class="result-row"><span class="res-lbl">Usable hosts</span><span class="res-val" id="r-hosts"></span></div>
+      <div class="result-row"><span class="res-lbl">IP class</span><span id="r-class"></span></div>
+      <div class="result-row"><span class="res-lbl">IP type</span><span class="res-val" id="r-type"></span></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
